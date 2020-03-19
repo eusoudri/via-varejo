@@ -17,7 +17,7 @@ export class StatementTransactionComponent implements OnInit, OnChanges {
   public lucro: number = 0;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.transactionlList) {
+    if (changes.transactionlList.currentValue != null) {
       let valorCompra = this.transactionlList.filter(x => x.type == 'Compra').reduce((valorCompra, t) => {
         return valorCompra + t.value;
       }, 0)
