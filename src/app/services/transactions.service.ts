@@ -13,18 +13,18 @@ export class TransactionService {
   }
 
   InsertTransaction(transaction: transactionModel):any {
-    let localList = JSON.parse(localStorage.getItem("transactionList"));
+    let localList = JSON.parse(localStorage.getItem('transactionList'));
     if (localList) {
       this.transactionList = localList;
     }
 
     this.transactionList.push(transaction);
-    localStorage.setItem("transactionList", JSON.stringify(this.transactionList));
+    localStorage.setItem('transactionList', JSON.stringify(this.transactionList));
   }
 
   GetTransactions(): transactionModel[] {
     let transactionList: Array<transactionModel>;
-    transactionList = JSON.parse(localStorage.getItem("transactionList"));
+    transactionList = JSON.parse(localStorage.getItem('transactionList'));
     return transactionList;
   }
 }
