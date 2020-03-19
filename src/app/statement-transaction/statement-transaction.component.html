@@ -1,0 +1,36 @@
+<div class="row mt-3">
+  <div class="col-12 mt-3">
+    <h5 class="c-title-primary text-center">extrato de transações</h5>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-12 mt-3">
+    <table class="table c-table">
+      <thead>
+        <tr>
+          <th class="c-table-size-sm" scope="col"></th>
+          <th class="c-table-size-lg" scope="col">Mercadoria</th>
+          <th class="c-table-size-md" scope="col">Valor (R$)</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of transactionlList">
+        <tr [ngClass]="{'text-success': item.type == 'Venda',
+                        'text-danger': item.type != 'Venda'}" >
+          <th scope="row">{{item.type =="Venda" ? '+':'-'}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.value}}</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr class="table-dark">
+          <th></th>
+          <th>Total</th>
+          <th>
+            <span class="total">{{total}}</span>
+            <span class="total" *ngIf="total != 0">{{total > 0 ? 'Lucro':'Prejuizo'}}</span>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
